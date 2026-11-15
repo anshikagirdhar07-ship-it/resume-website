@@ -1,0 +1,279 @@
+/* ===== 1. RESET & COLOR PALETTE ===== */
+:root {
+  --dark: #2f3a4d;        /* headings, navbar */
+  --slate: #d5dde7;       /* soft blue-grey (from the CV) */
+  --green: #8aa200;       /* accent colour (from the CV hills) */
+  --light: #f7f9fc;       /* page background */
+  --text: #4a5568;        /* body text */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--light);
+  color: var(--text);
+  line-height: 1.7;
+}
+
+/* ===== 2. NAVIGATION BAR (flexbox) ===== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 8%;
+  background-color: var(--dark);
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  color: white;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--slate);
+  text-decoration: none;
+  font-size: 0.95rem;
+  padding-bottom: 4px;
+  transition: color 0.3s, border-color 0.3s;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-links a:hover {
+  color: white;
+  border-bottom: 2px solid var(--green);
+}
+
+/* ===== 3. HERO SECTION ===== */
+.hero {
+  background-image: linear-gradient(rgba(255,255,255,0.15), rgba(255,255,255,0.15)),
+                    url('../images/hero-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.profile-pic {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 6px solid white;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.4rem;
+  color: var(--dark);
+  letter-spacing: 2px;
+}
+
+.hero h1 span {
+  color: var(--green);
+}
+
+.tagline {
+  font-size: 1.1rem;
+  color: var(--dark);
+  margin: 10px 0 28px;
+}
+
+.btn {
+  background-color: var(--dark);
+  color: white;
+  text-decoration: none;
+  padding: 12px 32px;
+  border-radius: 30px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn:hover {
+  background-color: var(--green);
+  transform: translateY(-3px);
+}
+
+/* ===== 4. GENERAL SECTIONS ===== */
+.section {
+  padding: 70px 10%;
+}
+
+.section.alt {
+  background-color: var(--slate);
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.1rem;
+  color: var(--dark);
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* little green line under every title */
+.section-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: var(--green);
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+.about-text {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+/* ===== 5. CARDS (education, skills, achievements) ===== */
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+}
+
+.card {
+  background-color: white;
+  width: 260px;
+  padding: 26px;
+  border-radius: 14px;
+  border-top: 5px solid var(--green);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.15);
+}
+
+.card h3 {
+  color: var(--dark);
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+}
+
+.card .place {
+  font-weight: 600;
+}
+
+.date {
+  font-size: 0.85rem;
+  color: #7a8699;
+}
+
+/* ===== 6. WORK EXPERIENCE TIMELINE ===== */
+.timeline {
+  max-width: 800px;
+  margin: 0 auto;
+  border-left: 4px solid var(--slate);
+  padding-left: 30px;
+}
+
+.job {
+  position: relative;
+  margin-bottom: 36px;
+}
+
+/* the green dot on the line */
+.job::before {
+  content: "";
+  position: absolute;
+  left: -43px;
+  top: 6px;
+  width: 18px;
+  height: 18px;
+  background-color: var(--green);
+  border: 3px solid white;
+  border-radius: 50%;
+}
+
+.job h3 {
+  color: var(--dark);
+  font-size: 1.2rem;
+}
+
+.job ul {
+  margin: 8px 0 0 20px;
+}
+
+.job li {
+  margin-bottom: 6px;
+}
+
+/* ===== 7. CONTACT ===== */
+.contact {
+  background-image: linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)),
+                    url('../images/contact-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+}
+
+.contact a {
+  color: var(--green);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.contact a:hover {
+  text-decoration: underline;
+}
+
+/* ===== 8. FOOTER ===== */
+footer {
+  background-color: var(--dark);
+  color: var(--slate);
+  text-align: center;
+  padding: 18px;
+  font-size: 0.9rem;
+}
+
+/* ===== 9. MOBILE FRIENDLY ===== */
+@media (max-width: 700px) {
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+  }
+  .hero h1 {
+    font-size: 2.3rem;
+  }
+  .section {
+    padding: 50px 6%;
+  }
+}
